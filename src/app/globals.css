@@ -1,0 +1,74 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* CorpsHub palette expressed in shadcn's token vocabulary, so 21st.dev / shadcn
+   components drop in already matching the brand. */
+:root {
+  --radius: 0.625rem;
+  --background: #faf9f6;            /* warm paper */
+  --foreground: #1c1917;           /* high-contrast warm ink */
+  --card: #ffffff;
+  --card-foreground: #1c1917;
+  --popover: #ffffff;
+  --popover-foreground: #1c1917;
+  --primary: #b8431f;              /* brand terracotta — WCAG-safe with white text */
+  --primary-foreground: #ffffff;
+  --secondary: #f3f1ec;
+  --secondary-foreground: #1c1917;
+  --muted: #f3f1ec;               /* subtle background */
+  --muted-foreground: #6f6a63;    /* secondary text */
+  --accent: #f7ece6;              /* warm subtle (hover / highlight) */
+  --accent-foreground: #b8431f;
+  --destructive: #dc2626;
+  --border: #e8e3da;
+  --input: #e8e3da;
+  --ring: #b8431f;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --font-sans: var(--font-public-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+}
+
+html { color-scheme: light; }
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Editorial serif headings (supports the storytelling sections). */
+h1, h2 {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+/* Accessible focus rings (Government/Public Service guidance: clear 3px focus). */
+:focus-visible {
+  outline: 3px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
