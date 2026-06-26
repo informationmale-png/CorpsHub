@@ -21,8 +21,17 @@ export default async function FellowPage({ params }: { params: Promise<{ id: str
   if (!supabaseConfigured()) notFound();
 
   const supabase = await createClient();
-  const { data: profile } = await supabase.from("profiles").select("*").eq("id", id).single();
-  if (!profile) notFound();
+  const { data: profile } = await supabase.from("profiles").select("*").eq("id", id).maybeSingle();
+  if (!profile) {
+    return (
+      <div className="mx-auto max-w-md pt-20 text-center">
+        <h1 className="text-xl font-semibold">Profile not found</h1>
+        <p className="mt-2 text-sm text-muted-foreground">
+          This fellow hasn't set up their profile yet.
+        </p>
+      </div>
+    );
+  }
   const p = profile as Profile;
 
   const { data: projData } = await supabase.from("projects").select("*").eq("author_id", id).order("created_at", { ascending: false });
