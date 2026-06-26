@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import ProjectCard from "@/components/ProjectCard";
+import AnimatedCard from "@/components/AnimatedCard";
 import Avatar from "@/components/Avatar";
 import { getDeployments } from "@/lib/data";
 import { createClient, supabaseConfigured } from "@/lib/supabase/server";
@@ -78,8 +78,8 @@ export default async function FellowPage({ params }: { params: Promise<{ id: str
         <p className="mt-2 text-sm text-muted-foreground">No projects published yet.</p>
       ) : (
         <div className="mt-4 grid gap-4 sm:grid-cols-2">
-          {projects.map((proj) => (
-            <ProjectCard key={proj.id} project={proj} />
+          {projects.map((proj, i) => (
+            <AnimatedCard key={proj.id} project={proj} index={i} />
           ))}
         </div>
       )}

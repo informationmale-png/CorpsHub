@@ -12,6 +12,7 @@ const fraunces = Fraunces({ subsets: ["latin"], variable: "--font-fraunces", dis
 export const metadata: Metadata = {
   title: "CorpsHub — GitHub for Claude Corps",
   description: "A living library of the AI tools Claude Corps fellows build at nonprofits.",
+  icons: [{ url: "/favicon.svg", type: "image/svg+xml" }],
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {

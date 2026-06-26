@@ -39,7 +39,7 @@ export default async function LibraryPage() {
               <Link
                 key={s}
                 href={`/library/${sectorSlug(s)}`}
-                className="rounded-full border border-border bg-card px-3 py-1.5 text-sm hover:border-primary hover:text-primary"
+                className="rounded-full border border-border bg-card px-4 py-2 text-sm hover:border-primary hover:text-primary"
               >
                 {s} <span className="text-muted-foreground">({count(s)})</span>
               </Link>

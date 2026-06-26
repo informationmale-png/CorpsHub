@@ -1,5 +1,5 @@
 import Link from "next/link";
-import ProjectCard from "@/components/ProjectCard";
+import AnimatedCard from "@/components/AnimatedCard";
 import { getProjects, getDeployments } from "@/lib/data";
 import type { Project } from "@/lib/types";
 import { SECTORS, sectorSlug } from "@/lib/constants";
@@ -13,8 +13,8 @@ function Section({ title, subtitle, projects }: { title: string; subtitle: strin
       <h2 className="text-xl font-semibold">{title}</h2>
       <p className="mb-4 text-sm text-muted-foreground">{subtitle}</p>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {projects.map((p) => (
-          <ProjectCard key={p.id} project={p} />
+        {projects.map((p, i) => (
+          <AnimatedCard key={p.id} project={p} index={i} />
         ))}
       </div>
     </section>
@@ -36,30 +36,32 @@ export default async function Home() {
 
   return (
     <div>
-      <div className="mx-auto max-w-2xl pt-10 pb-4 text-center">
-        <h1 className="text-3xl font-bold sm:text-4xl">Find a tool that already solves your problem.</h1>
-        <p className="mt-3 text-muted-foreground">A living library of everything Claude Corps fellows build at nonprofits.</p>
+      <div className="bg-gradient-to-b from-accent/50 to-background rounded-b-3xl pt-10 pb-6 -mx-4 px-4 mb-2">
+        <div className="mx-auto max-w-2xl text-center">
+          <h1 className="text-3xl font-bold sm:text-4xl text-balance">Find a tool that already solves your problem.</h1>
+          <p className="mt-3 text-muted-foreground">A living library of everything Claude Corps fellows build at nonprofits.</p>
 
-        <form action="/projects" className="mt-8">
-          <input
-            type="text"
-            name="q"
-            placeholder="What problem are you trying to solve?"
-            className="w-full rounded-xl border border-border bg-card px-5 py-4 text-lg shadow-sm outline-none focus:border-primary"
-            aria-label="Search projects"
-          />
-        </form>
+          <form action="/projects" className="mt-8 focus-within:ring-2 focus-within:ring-primary/30 rounded-xl transition-all">
+            <input
+              type="text"
+              name="q"
+              placeholder="What problem are you trying to solve?"
+              className="w-full rounded-xl border border-border bg-card px-5 py-4 text-lg shadow-sm outline-none focus:border-primary"
+              aria-label="Search projects"
+            />
+          </form>
 
-        <div className="mt-5 flex flex-wrap justify-center gap-2">
-          {SECTORS.map((s) => (
-            <Link
-              key={s}
-              href={`/library/${sectorSlug(s)}`}
-              className="rounded-full border border-border bg-card px-3 py-1 text-sm text-muted-foreground hover:border-primary hover:text-primary"
-            >
-              {s}
-            </Link>
-          ))}
+          <div className="mt-5 flex flex-wrap justify-center gap-2">
+            {SECTORS.map((s) => (
+              <Link
+                key={s}
+                href={`/library/${sectorSlug(s)}`}
+                className="rounded-full border border-border bg-card px-4 py-2 text-sm text-muted-foreground hover:border-primary hover:text-primary"
+              >
+                {s}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
 

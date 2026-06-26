@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import ProjectCard from "@/components/ProjectCard";
+import AnimatedCard from "@/components/AnimatedCard";
 import { getProjects } from "@/lib/data";
 import { sectorFromSlug, sectorSlug } from "@/lib/constants";
 
@@ -35,8 +35,8 @@ export default async function SectorPage({ params }: { params: Promise<{ sector:
         </div>
       ) : (
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((p) => (
-            <ProjectCard key={p.id} project={p} />
+          {projects.map((p, i) => (
+            <AnimatedCard key={p.id} project={p} index={i} />
           ))}
         </div>
       )}

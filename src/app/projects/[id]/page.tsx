@@ -79,11 +79,11 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
           )}
         </div>
         <div className="mt-5 flex gap-3">
-          <Link href={`/submit?remix=${project.id}`} className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:opacity-90">
+          <Link href={`/submit?remix=${project.id}`} className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white transition-all hover:bg-primary/90 active:scale-[0.97]">
             Remix this project
           </Link>
           {project.github_url && (
-            <a href={project.github_url} target="_blank" rel="noopener noreferrer" className="rounded-md border border-border px-4 py-2 text-sm font-medium hover:border-primary">
+            <a href={project.github_url} target="_blank" rel="noopener noreferrer" className="rounded-md border border-border px-4 py-2 text-sm font-medium transition-all hover:border-primary active:scale-[0.97]">
               View code
             </a>
           )}

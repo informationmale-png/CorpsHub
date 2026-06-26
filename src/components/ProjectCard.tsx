@@ -11,7 +11,7 @@ export default function ProjectCard({ project }: { project: Project }) {
   return (
     <Link
       href={`/projects/${project.id}`}
-      className="block rounded-xl border border-border bg-card p-5 transition hover:border-primary hover:shadow-sm"
+      className="block rounded-xl border border-border bg-card p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/60 hover:shadow-md"
     >
       <div className="mb-2 flex items-start justify-between gap-2">
         <h3 className="font-semibold leading-tight">{project.name}</h3>

@@ -11,9 +11,17 @@ export default function Collapsible({ title, children }: { title: string; childr
         className="flex w-full items-center justify-between px-5 py-4 text-left font-medium"
       >
         {title}
-        <span className="text-muted-foreground">{open ? "−" : "+"}</span>
+        <span className={`inline-block text-muted-foreground transition-transform duration-200 ${open ? "rotate-45" : ""}`}>+</span>
       </button>
-      {open && <div className="border-t border-border px-5 py-4 text-sm">{children}</div>}
+      <div
+        className={`grid transition-all duration-300 ${
+          open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+        }`}
+      >
+        <div className="overflow-hidden">
+          <div className="border-t border-border px-5 py-4 text-sm">{children}</div>
+        </div>
+      </div>
     </div>
   );
 }

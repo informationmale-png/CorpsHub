@@ -1,5 +1,5 @@
 import Link from "next/link";
-import ProjectCard from "@/components/ProjectCard";
+import AnimatedCard from "@/components/AnimatedCard";
 import { getProjects } from "@/lib/data";
 import { SECTORS, DIFFICULTIES, SETUP_TIMES, ORG_SIZES } from "@/lib/constants";
 
@@ -25,7 +25,7 @@ function FilterRow({ label, options, paramKey, current }: { label: string; optio
           <Link
             key={opt}
             href={buildHref(current, paramKey, opt)}
-            className={`rounded-full px-3 py-1 text-sm transition ${
+            className={`rounded-full px-4 py-2 text-sm transition ${
               active ? "bg-primary text-white" : "border border-border bg-card text-muted-foreground hover:border-primary hover:text-primary"
             }`}
           >
@@ -76,14 +76,14 @@ export default async function ProjectsPage({ searchParams }: { searchParams: Pro
             name="sector"
             defaultValue={sp.sector && !known.has(sp.sector) ? sp.sector : ""}
             placeholder="Type a sector…"
-            className="rounded-full border border-border bg-card px-3 py-1 text-sm outline-none focus:border-primary"
+            className="rounded-full border border-border bg-card px-4 py-2 text-sm outline-none focus:border-primary"
             aria-label="Filter by a custom sector"
           />
           {sp.q && <input type="hidden" name="q" value={sp.q} />}
           {sp.difficulty && <input type="hidden" name="difficulty" value={sp.difficulty} />}
           {sp.setup && <input type="hidden" name="setup" value={sp.setup} />}
           {sp.org && <input type="hidden" name="org" value={sp.org} />}
-          <button type="submit" className="rounded-full bg-primary px-3 py-1 text-sm text-white hover:opacity-90">Filter</button>
+          <button type="submit" className="rounded-full bg-primary px-4 py-2 text-sm text-white transition-all hover:bg-primary/90 active:scale-[0.97]">Filter</button>
         </form>
       </div>
 
@@ -99,8 +99,8 @@ export default async function ProjectsPage({ searchParams }: { searchParams: Pro
         </div>
       ) : (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((p) => (
-            <ProjectCard key={p.id} project={p} />
+          {projects.map((p, i) => (
+            <AnimatedCard key={p.id} project={p} index={i} />
           ))}
         </div>
       )}

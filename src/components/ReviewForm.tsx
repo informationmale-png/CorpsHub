@@ -58,7 +58,7 @@ export default function ReviewForm({ projectId }: { projectId: string }) {
             onClick={() => setRating(n)}
             onMouseEnter={() => setHover(n)}
             onMouseLeave={() => setHover(0)}
-            className="text-2xl leading-none"
+            className="p-1.5 text-2xl leading-none transition-transform duration-150 hover:scale-110 active:scale-125"
             aria-label={`${n} star${n > 1 ? "s" : ""}`}
             aria-pressed={rating === n}
           >
@@ -95,7 +95,7 @@ export default function ReviewForm({ projectId }: { projectId: string }) {
       <button
         type="submit"
         disabled={busy}
-        className="rounded-lg bg-primary px-4 py-2 text-sm font-medium text-white hover:opacity-90 disabled:opacity-60"
+        className="rounded-lg bg-primary px-4 py-2 text-sm font-medium text-white transition-all hover:bg-primary/90 active:scale-[0.97] disabled:opacity-60"
       >
         {busy ? "Posting…" : "Post review"}
       </button>

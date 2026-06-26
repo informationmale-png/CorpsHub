@@ -16,7 +16,7 @@
   --secondary: #f3f1ec;
   --secondary-foreground: #1c1917;
   --muted: #f3f1ec;               /* subtle background */
-  --muted-foreground: #6f6a63;    /* secondary text */
+  --muted-foreground: #5c5751;    /* secondary text — WCAG AA 4.5:1+ */
   --accent: #f7ece6;              /* warm subtle (hover / highlight) */
   --accent-foreground: #b8431f;
   --destructive: #dc2626;

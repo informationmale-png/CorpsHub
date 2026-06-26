@@ -84,7 +84,7 @@ export default function LoginPage() {
         <button
           type="submit"
           disabled={busy}
-          className="w-full rounded-lg bg-primary py-2.5 font-medium text-white hover:opacity-90 disabled:opacity-60"
+          className="w-full rounded-lg bg-primary py-2.5 font-medium text-white transition-all hover:bg-primary/90 active:scale-[0.97] disabled:opacity-60"
         >
           {busy ? "…" : mode === "signin" ? "Sign in" : "Create account"}
         </button>

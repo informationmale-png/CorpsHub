@@ -104,7 +104,7 @@ export default function ProfileForm({ userId, profile }: { userId: string; profi
         <button
           type="submit"
           disabled={busy}
-          className="rounded-lg bg-primary px-5 py-2.5 font-medium text-white hover:opacity-90 disabled:opacity-60"
+          className="rounded-lg bg-primary px-5 py-2.5 font-medium text-white transition-all hover:bg-primary/90 active:scale-[0.97] disabled:opacity-60"
         >
           {busy ? "Saving…" : "Save profile"}
         </button>
@@ -128,10 +128,12 @@ function Field({
   onChange: (v: string) => void;
   placeholder?: string;
 }) {
+  const id = `profile-${label.toLowerCase().replace(/\s+/g, "-")}`;
   return (
     <div>
-      <label className="block text-sm font-medium">{label}</label>
+      <label className="block text-sm font-medium" htmlFor={id}>{label}</label>
       <input
+        id={id}
         className="mt-1 w-full rounded-lg border border-border bg-card px-3 py-2 outline-none focus:border-primary"
         value={value}
         placeholder={placeholder}
