@@ -1,34 +1,57 @@
 # CorpsHub
-### GitHub for Claude Corps
+### AI tools for nonprofits, built by Claude Corps fellows.
 
-A living library where Claude Corps fellows publish the AI tools they build at nonprofits — searchable, browseable by sector, and written for humans, not developers — so every future fellow starts with a head start instead of from scratch.
+**→ [corpshub.vercel.app](https://corpshub.vercel.app)**
 
-## What's built
-- **Homepage** — big "What problem are you trying to solve?" search + sector chips + Trending / Recently Added / Verified sections
-- **Browse** (`/projects`) — search + filters (sector, setup time, level, org size)
-- **Project page** (`/projects/[id]`) — the 5 sections (Problem, Solution, Setup, Reviews, collapsible Technical) + the note-to-the-next-fellow callout
-- **Submit** (`/submit`) — guided form, requires a signed-in fellow
-- **Sign in / sign up** (`/login`) — Supabase Auth (fellow accounts)
-- **Library** (`/library`) — sectors index + per-sector pages
-- **Impact Dashboard** (`/dashboard`) — projects, deployments, states, hours saved, sectors, nonprofits
-- **Fellow profiles** (`/fellows/[id]`) — projects + auto-calculated impact
+A searchable library of every project Claude Corps fellows have built at nonprofits. Before you build from scratch, check if a fellow already solved it.
 
-## Stack
-Next.js 16 (App Router) · React 19 · Tailwind 4 · Supabase (Postgres + Auth)
+---
 
-## Setup
-1. **Supabase:** create a project → Settings → API → copy the Project URL and `anon public` key into `.env.local` (see `.env.local.example`).
-2. **Database:** open Supabase → SQL Editor → paste `supabase/schema.sql` → Run.
-3. **Auth (for easy local testing):** Authentication → turn off "Confirm email" so sign-ups log in immediately. (Turn back on before going public.)
-4. Run it:
-   ```bash
-   npm install
-   npm run dev
-   ```
-   Open http://localhost:3000
+## Why this exists
 
-## Deploy
-Push to GitHub, import the repo in Vercel, and add the two `NEXT_PUBLIC_SUPABASE_*` env vars. Vercel gives you a live URL.
+Every year, hundreds of Claude Corps fellows build AI tools for nonprofits. Most reinvent the same solutions — intake forms, eligibility screeners, volunteer matching, reporting dashboards. CorpsHub makes sure the next fellow starts with a head start, not from scratch.
 
-## Roadmap (next layers)
-Remix flow · review & deployment submission UI · nonprofit directory · cohort pages.
+## For fellows
+
+- **Browse by sector** — Food Security, Housing, Public Health, Education, 15+ more
+- **Search projects** — find what solves your nonprofit's problem
+- **Filter by difficulty** — Beginner to Advanced
+- **Read deployment notes** — each project has "what someone needs to set this up" and "a note to the next fellow"
+- **Submit your project** — leave your legacy for the next cohort
+
+## For nonprofits
+
+- **Find proven tools** — projects are written for humans, not developers
+- **Leave reviews** — tell the next org what worked
+- **Track deployments** — log when your org adopts a project
+
+## The impact tracking
+
+Every project tracks deployments across nonprofits. Fellow profiles auto-calculate:
+- Projects published
+- Times deployed
+- Hours saved
+- Orgs helped
+
+---
+
+## Built with
+
+Next.js 16 · React 19 · Tailwind 4 · Supabase (Postgres + Auth) · TypeScript · Vercel
+
+## Quick start
+
+```bash
+npm install
+npm run dev           # local at localhost:3000
+```
+
+Requires Supabase keys in `.env.local` — see `supabase/schema.sql` for the DB schema.
+
+## Deploy your own
+
+Push this repo to Vercel, set the two `NEXT_PUBLIC_SUPABASE_*` env vars, and you're live.
+
+---
+
+**[corpshub.vercel.app](https://corpshub.vercel.app)** — built during Claude Corps by [@informationmale-png](https://github.com/informationmale-png).
